@@ -99,7 +99,7 @@ function process_calendar_response(error, response, body) {
 			summary: events[i].desc2,
 			description: events[i].desc1 + " with " + events[i].teacherName,
 			location: events[i].locCode,
-			organizer: events[i].teacherName,
+			organizer: { name: events[i].teacherName, email: "example@example.com" },
 			status: "confirmed"
 		});
 	}

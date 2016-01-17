@@ -2,3 +2,4 @@ index-got.js
 events.log
 events.log*
 node_modules
+npm-debug.log
