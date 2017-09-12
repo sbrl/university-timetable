@@ -1,15 +1,5 @@
 {
-  "name": "hull-university-ical",
-  "author": "Starbeamrainbowlabs",
-  "main": "index.js",
-  "version": "0.0.1",
   "dependencies": {
-    "ical-generator": "*",
-    "moment": "*",
-    "request": "*",
-    "tough-cookie": "*"
-  },
-  "scripts": {
-    "start": "node index.js"
+    "nightmare": "^2.10.0"
   }
 }
