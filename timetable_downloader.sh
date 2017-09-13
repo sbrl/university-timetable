@@ -28,6 +28,6 @@ while true; do
 	
 	log_message "Rescraped university timetable to ${SBRL_OUTPUT_FILENAME}";
 	
-	sleep interval;
+	sleep ${interval};
 	sleep $((($RANDOM % ${variance})));
 done
