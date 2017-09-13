@@ -10,8 +10,8 @@ Google Calendar.
 **Rewrite in progress!**
 
  - [x] Grab the timetable as html
- - [ ] Parse out the events from the html
- - [ ] Output events as ical
+ - [x] Parse out the events from the html
+ - [x] Output events as ical
  - [ ] Create bash wrapper that calls node script reguarly and automatically to keept he ical file up-to-date
 
 Technologies used:
@@ -29,7 +29,8 @@ Technologies used:
 ## Environment Variables
 
 Variable                | Meaning
-------------------------|-----------------
+------------------------|---------------------------
+`SBRL_OUTPUT_FILENAME`  | _Optional_. The filename to which the ical file should be saved. Default: `timetable.ical` in the current directory.
 `SWS_ROOT_URL`          | _Optional_. The url at which sws can be accessed. Default: https://timetable.hull.ac.uk/
 `SWS_USERNAME`          | **Required**. Your network login username.
 `SWS_PASSWORD`          | **Required**. Your network login password.

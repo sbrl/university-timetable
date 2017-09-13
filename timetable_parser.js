@@ -10,9 +10,8 @@ class TimetableParser
 {
 	constructor(timetableHTML)
 	{
+		this.verbose = false;
 		this.doc = cheerio.load(timetableHTML);
-		
-		this.events = [];
 		
 		this.week1 = moment({ year: (new Date()).getFullYear() }).week(35 - 1);
 		
@@ -32,7 +31,8 @@ class TimetableParser
 		// Parse out the html and extract the events
 		this.parse_events();
 		
-		console.log(`Week 1: ${this.week1}`)
+		if(this.verbose)
+			console.log(`Week 1: ${this.week1}`);
 		
 		// Convert the left-over moment objects to vanilla Date objects
 		this.calendar.events.sort(function(a, b) {
@@ -46,7 +46,8 @@ class TimetableParser
 			ev.start = ev.start.toDate();
 			ev.end = ev.end.toDate();
 			
-			console.log(`[ ${ev.start.toString()} - ${ev.start.toString()} ] ${ev.summary} @ ${ev.location} with ${ev.organizer.name}`);
+			if(this.verbose)
+				console.log(`[ ${ev.start.toString()} - ${ev.start.toString()} ] ${ev.summary} @ ${ev.location} with ${ev.organizer.name}`);
 		});
 		
 		// Convert the calendar to ics

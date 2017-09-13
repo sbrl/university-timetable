@@ -3,18 +3,23 @@
 const fs = require("fs");
 const Nightmare = require("nightmare");
 
+const TimetableParser = require("./timetable_parser");
+
 const version = "0.2-alpha";
 
 var settings = {
+	output_filename: process.env.SBRL_OUTPUT_FILENAME || "./timetable.ical",
+	
 	sws_root_url: process.env.SWS_ROOT_URL || "https://timetable.hull.ac.uk/",
 	sws_username: process.env.SWS_USERNAME,
 	sws_password: process.env.SWS_PASSWORD,
 	
+	show_window: false,
 	user_agent: `Mozilla/5.0 timetable-extractor/${version} (bot; ${process.platform} ${process.arch}; scrapes personal timetable; author contact: abuse@starbeamrainbowlabs.com) Node.JS/${process.version} Nightmare/${Nightmare.version}`,
 	loadTimeout: 30 * 1000
 };
 
-const sws_crawler = Nightmare({ show: true, loadTimeout: settings.loadTimeout });
+const sws_crawler = Nightmare({ show: settings.show_window, loadTimeout: settings.loadTimeout });
 
 
 sws_crawler.useragent(settings.user_agent)
@@ -35,6 +40,10 @@ sws_crawler.useragent(settings.user_agent)
 	.evaluate(() => {
 		return document.body.innerHTML;
 	})
-	.end((timetable_html) => {
-		fs.writeFileSync("timetable.html", timetable_html);
+	.end()
+	.then((timetable_html) => {
+		//fs.writeFileSync("timetable.html", timetable_html);
+		
+		var timetable_parser = new TimetableParser(timetable_html);
+		fs.writeFileSync(settings.output_filename, timetable_parser.asIcal());
 	});
