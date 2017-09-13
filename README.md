@@ -12,7 +12,7 @@ Google Calendar.
  - [x] Grab the timetable as html
  - [x] Parse out the events from the html
  - [x] Output events as ical
- - [ ] Create bash wrapper that calls node script reguarly and automatically to keept he ical file up-to-date
+ - [x] Create bash wrapper that calls node script reguarly and automatically to keept he ical file up-to-date
 
 Technologies used:
  - [Node.JS](https://nodejs.org/)
