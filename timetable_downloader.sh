@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 
+# Core Settings
 syslog_tag="university-timetable";
 
-interval=1200;	# 20 minutes
-variance=600;	# 10 minutes
-
 function log_message(message) {
-	logger --id $$ --tag "university-timetable" "${message}";
+	logger --stderr --id $$ --tag "university-timetable" "${message}";
 }
 
 log_message "Starting university-timetable scraper";
 
 if [[ -f ".timetable-settings" ]]; then
 	source .timetable-settings;
+else
+	log_message "fatal: No source settings file found! Exiting";
+	exit 65;
 fi
 
 # Send variables to 
@@ -22,7 +23,7 @@ log_message 'Started university-timetable scraper successfully!';
 
 while true; do
 	echo -ne "[$(date)] Rescraping timetable - ";
-	node ./generate.js
+	su "${scraping_user}" -c 'node ./generate.js';
 	echo -ne "done";
 	
 	log_message "Rescraped university timetable to ${SBRL_OUTPUT_FILENAME}";

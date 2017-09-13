@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# The user to actually do the scraping as. Is not created automatically! That's
+# your job :P
+scraping_user=unitimetable;
+
+# The interval at which scraping should occur, in seconds.
+interval=1200;	# 20 minutes
+# Scrapes will be additionally delayed by a random number of seconds
+# between 0 and this number.
+variance=600;	# 10 minutes
+
+# Your network login
+SWS_USERNAME=012345;
+# Your network password
+SWS_PASSWORD=your_password_here;

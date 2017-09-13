@@ -35,5 +35,28 @@ Variable                | Meaning
 `SWS_USERNAME`          | **Required**. Your network login username.
 `SWS_PASSWORD`          | **Required**. Your network login password.
 
+## Automation
+The script `timetable_downloader.sh` can be used to automate the process of scraping your timetable. Here's a rough guide as to how I recommend setting it up:
+
+```bash
+# Run all the following commands as root
+# cd to the place you want to put the script
+cd /root;
+# Clone this repository
+git clone https://github.com/sbrl/university-timetable.git;
+# Install the dependencies
+npm install;
+# Copy the example settings file
+cp .timetable-settings.default .timetable-settings;
+# Set the permissions correctly
+chmod 0600 .timetable-settings;
+# Edit the settings file to suit
+nano .timetable-settings;
+# Lock down the permissions further
+chmod -w .timetable-settings;
+```
+
+After executing the above, you should be ready for a test run. Try `sudo ./timetable_downloader.sh` and see if it works! Once satisfied, set it up as a system service with your service manager (be that OpenRC, init.d, upstart, systemd, etc.).
+
 ## License
 This code is available under the _Mozilla Public License, version 2.0_. The full license text is available in the `LICENSE` file in this repository.
