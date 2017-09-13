@@ -3,8 +3,8 @@
 # Core Settings
 syslog_tag="university-timetable";
 
-function log_message(message) {
-	logger --stderr --id $$ --tag "university-timetable" "${message}";
+log_message() {
+	logger --stderr --id $$ --tag "university-timetable" "$1";
 }
 
 log_message "Starting university-timetable scraper";

@@ -49,11 +49,9 @@ npm install;
 # Copy the example settings file
 cp .timetable-settings.default .timetable-settings;
 # Set the permissions correctly
-chmod 0600 .timetable-settings;
+chmod 0400 .timetable-settings;
 # Edit the settings file to suit
 nano .timetable-settings;
-# Lock down the permissions further
-chmod -w .timetable-settings;
 ```
 
 After executing the above, you should be ready for a test run. Try `sudo ./timetable_downloader.sh` and see if it works! Once satisfied, set it up as a system service with your service manager (be that OpenRC, init.d, upstart, systemd, etc.).
