@@ -7,6 +7,13 @@ const TimetableParser = require("./timetable_parser");
 
 const version = "0.2-alpha";
 
+if(typeof process.env.SWS_USERNAME != "string") {
+	throw new Error("Error: SWS_USERNAME not specified!");
+}
+if(typeof process.env.SWS_PASSWORD != "string") {
+	throw new Error("Error: SWS_USERNAME not specified!");
+}
+
 var settings = {
 	output_filename: process.env.SBRL_OUTPUT_FILENAME || "./timetable.ical",
 	
