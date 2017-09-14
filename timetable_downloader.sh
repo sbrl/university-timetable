@@ -23,8 +23,8 @@ log_message 'Started university-timetable scraper successfully!';
 
 while true; do
 	echo -ne "[$(date)] Rescraping timetable - ";
-	su "${scraping_user}" -c 'node ./generate.js';
-	echo -ne "done";
+	sudo --preserve-env -u "${scraping_user}" node ./generate.js;
+	echo -e "done";
 	
 	log_message "Rescraped university timetable to ${SBRL_OUTPUT_FILENAME}";
 	
