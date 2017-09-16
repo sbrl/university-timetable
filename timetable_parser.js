@@ -91,6 +91,7 @@ class TimetableParser
 					alarms: [15, 0],
 					
 					summary: event_summary,
+					description: `At ${event_location} by ${event_organiser.name}`,
 					location: event_location,
 					organizer: event_organiser
 				});
