@@ -10,10 +10,12 @@ class TimetableParser
 {
 	constructor(timetableHTML)
 	{
-		this.verbose = false;
+		this.verbose = true;
 		this.doc = cheerio.load(timetableHTML);
 		
-		this.week1 = moment({ year: (new Date()).getFullYear() }).week(35 - 1);
+		this.week1 = moment({
+			year: (new Date()).getMonth() > 7 ? (new Date()).getFullYear() : (new Date()).getFullYear() - 1
+		}).week(35 - 1);
 		
 		this.calendar = ical_toolkit.createIcsFileBuilder();
 		this.calendar.thowError = true;
@@ -23,7 +25,7 @@ class TimetableParser
 	}
 	
 	/**
-	 * Converts this timetable ot an ical calendar.
+	 * Converts this timetable to an ical calendar.
 	 * @return	{string}	This calendar as a string of ical.
 	 */
 	asIcal()
