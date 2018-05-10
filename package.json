@@ -1,8 +1,8 @@
 {
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "ical-toolkit": "1.*",
-    "moment": "*",
-    "nightmare": "*"
+    "ical-toolkit": "^1.0.9",
+    "moment": "^2.22.1",
+    "nightmare": "^3.0.1"
   }
 }
