@@ -15,7 +15,7 @@ class TimetableParser
 		
 		this.week1 = moment({
 			year: (new Date()).getMonth() > 7 ? (new Date()).getFullYear() : (new Date()).getFullYear() - 1
-		}).week(35 - 1);
+		}).week(35);
 		
 		this.calendar = ical_toolkit.createIcsFileBuilder();
 		this.calendar.thowError = true;
