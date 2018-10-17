@@ -90,7 +90,7 @@ class TimetableParser
 					method: "PUBLISH",
 					status: "CONFIRMED",
 					
-					alarms: [15, 0],
+					alarms: [15],
 					
 					summary: event_summary,
 					description: `At ${event_location} by ${event_organiser.name}`,
