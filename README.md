@@ -24,7 +24,13 @@ Technologies used:
 2. Clone this repository.
 3. Run `npm install` in the root of the clone.
 4. Set the appropriate environment variables (see the environment variables section below)
-5. Run `node generate.js` from the root of the repository
+5. Run `node generate.js` from the root of the repository, ensuring the below environment variables are set. The following commands make sure the bare-minimum are set:
+
+```bash
+read -p"Username: "; read -p"Password: " -s SWS_PASSWORD;
+export SWS_PASSWORD; export SWS_USERNAME;
+node ./generate.js;
+```
 
 ## Environment Variables
 
@@ -54,7 +60,7 @@ chmod 0400 .timetable-settings;
 nano .timetable-settings;
 ```
 
-After executing the above, you should be ready for a test run. Try `sudo ./timetable_downloader.sh` and see if it works! Once satisfied, set it up as a system service with your service manager (be that OpenRC, init.d, upstart, systemd, etc.).
+After executing the above, you should be ready for a test run. Try `sudo ./timetable_downloader.sh` and see if it works! Once satisfied, set it up as a cron job.
 
 ## License
 This code is available under the _Mozilla Public License, version 2.0_. The full license text is available in the `LICENSE` file in this repository.
