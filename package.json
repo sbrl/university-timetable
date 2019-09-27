@@ -4,5 +4,8 @@
     "ical-toolkit": "^1.0.9",
     "moment": "^2.24.0",
     "nightmare": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/nightmare": "^2.10.4"
   }
 }
