@@ -1,4 +1,8 @@
 # University Timetable Proxy
+
+This repository is now archived, as the University of Hull no longer uses SWS for timetabling. If I recall correctly the new timetabling system provides an ical directly - though if it doesn't then a completely new project will need to be started, as this one is completely broken given the change of timetabling system. If you still have a use for this repository, please do get in touch with me - contact details available on my website: <https://starbeamrainbowlabs.com/>.
+
+
 **Disclaimer: I don't own the website that this script connects to, nor am I responsible for discovering it. This may break or go away at any time. I only wrote this script for my own convenience.**
 
 This script, when configured, will save your Hull University timetable as an ical file on a regular basis to a specified location for use with Google Calendar.
